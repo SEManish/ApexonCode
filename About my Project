@@ -1,0 +1,15 @@
+Q01=Write-up on Project?
+Ans:My Project was a image geneation project with the help of insufficient image data.It was basically used in the semicundoector chips menufecturing.
+If any chip is a difctive then we can seperate those chips by clicking the picture in the inital time and correct the issue using this application.
+It has three module GAN,Blending,Image processing.
+
+Q02=What is a challenge you face.
+Ans:In the staring of the project we were developing the user signup and login process.But in the third milestone our korian team developed some codev api 
+and we were responsible for calling those apies for login and user signup in our gaudi application but there was role based authentication in those api and
+during testing those api's implementation we need to take credentials for every role present.Even we don't have the access for the database for rolebased 
+table.
+
+Q03=Project Roles and responsibility.
+Ans=I was working as a java backend developer in my previous organisation so I was responsible to develop different functionality for the blending GAN and
+ImageProcessing like creating the project,deleting the project,copythe project upload the image get the project,deatils login,signup and call the api
+developed by python them. 
