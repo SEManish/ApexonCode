@@ -2,7 +2,10 @@ package src;
 
 public class RainTrapping {
 public static void main(String[] args) {
-	
+	int hight[]= {0,1,0,2,1,0,1,3,2,1,2,1};
+	RainTrapping rwt=new RainTrapping();
+	int rainWater = rwt.rainWater(hight);
+	System.out.println(rainWater);
 }
 int rainWater(int a[]) {
 	int n=a.length;
