@@ -1,1 +1,29 @@
+Delete duplicate rows from employee table:
+==========================================
+create TEMPORARY TABLE sampleEmp AS(select employee_id,project_id from employees_projects
+group by employee_id,project_id
+having count(*)>1);
+ 
+select employee_id,project_id from sampleEmp;
+ 
+DELETE FROM employees_projects
+WHERE (employee_id,project_id) In (select employee_id,project_id from sampleEmp);
+
+===========================================================================================================================
+Question2:only order table it has 3 fields orderId primary key,custid and orderDate A customer can place only 1 order in a day .If more that one order it is considered a duplicate.
+ 
+SELECT orderId, custid, orderDate
+FROM orders
+WHERE orderDate = '2022-07-01';
+
+SELECT custid, orderDate, COUNT(orderId) AS orders_count
+FROM orders
+GROUP BY custid, orderDate
+HAVING COUNT(orderId) = 1;
+
+SELECT orderDate, COUNT(orderId) AS total_orders
+FROM orders
+GROUP BY orderDate;
+
+
 
