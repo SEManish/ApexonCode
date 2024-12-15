@@ -25,5 +25,48 @@ SELECT orderDate, COUNT(orderId) AS total_orders
 FROM orders
 GROUP BY orderDate;
 
+=========================================================================================================================
+
+Q01=find emp first name and last name with project assigned
+
+select concat(first_name," ", last_name) as employee_name, p.title as project_name
+from employees e
+join employees_projects ep on ep.employee_id = e.id
+join projects p on p.id = ep.project_id;
+
+Q02=find duplicate column
+
+select e1.project_id, e1.employee_id ,count(*)from employees_projects e1 GROUP by e1.employee_id, e1.project_id having COUNT(*)>1;
+
+Q03=delete the duplicate.
+delete from orders
+where order_id not in (
+    select min(order_id)
+    from orders
+    group by cust_id, order_date
+);
+=============================================================================================================================
+Assignmet:
+----------
+Q01=In Employees_Projects table some rows reference employees who no longer exist in the employees     table. Remove these orphaned rows.
+ 
+DELETE ep
+FROM EmployeeProjects ep
+LEFT JOIN Employees e ON ep.EmployeeID = e.EmployeeID
+WHERE e.EmployeeID IS NULL;
+
+Q02=Detect Salary gaps
+hint: you want to compare the average salary between departments.
+
+SELECT department_name, AVG(salary) AS avg_salary
+FROM employees
+GROUP BY department_name
+ORDER BY avg_salary DESC;
+
+Q03:Employees working on more than 1 project.
+SELECT employee_id, COUNT(DISTINCT project_id) AS project_count
+FROM employee_projects
+GROUP BY employee_id
+HAVING COUNT(DISTINCT project_id) > 1;
 
 
